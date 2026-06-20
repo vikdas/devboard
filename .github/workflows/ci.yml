@@ -5,7 +5,27 @@ on:
     branches: [master]
 
 jobs:
+lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # 👈 Set this to your project's Node version
+          cache: 'npm'       # 👈 Automatically caches dependencies for speed
+
+      - name: Install dependencies
+        run: npm ci          # 👈 Standard clean install for CI environments
+
+      - name: Run Linter
+        run: npm run lint    # 👈 Executes your project's linting script
+        
   build-and-push:
+    needs: [lint]
     runs-on: ubuntu-latest
 
     steps:
