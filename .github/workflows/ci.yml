@@ -1,1 +1,7 @@
+# Goal: Build the image for Devboard Frontend and push to the Docker hub
+name: CI
+on:
+  push:
+    branches: [master]
+
 
