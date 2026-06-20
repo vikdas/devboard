@@ -40,4 +40,4 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-fe-master:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/devboard-fe-master:latest 
